@@ -9,10 +9,31 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var powerValue: Float = 0.00
+    @IBOutlet weak var powerSlider: UISlider! {
+        didSet{
+            powerSlider.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/2))
+        }
+    }
 
+    @IBOutlet weak var label: UILabel!
+    @IBAction func powerSliderValue(_ sender: UISlider) {
+        print("slider working xxxxxxxx, the value is \(Int(sender.value))")
+        powerValue = sender.value
+        label.text = "\(powerValue)"
+
+    }
+    
+    @IBAction func powerUP(_ sender: UIButton) {
+        powerValue = powerValue * powerValue
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {

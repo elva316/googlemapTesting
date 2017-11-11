@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,114 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="googlemap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ZwR-Nr-guh">
+                                <rect key="frame" x="168" y="328" width="331" height="31"/>
+                                <connections>
+                                    <action selector="powerSliderValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="9AZ-id-yg6"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQ1-ZK-OLG">
+                                <rect key="frame" x="59" y="566" width="85" height="81"/>
+                                <color key="backgroundColor" red="0.92698863681639976" green="0.72161869961796099" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="G6Y-IY-PU1"/>
+                                    <constraint firstAttribute="height" constant="81" id="V8P-g1-fPH"/>
+                                </constraints>
+                                <state key="normal" title="Fire"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cfq-Ci-pxn">
+                                <rect key="frame" x="231" y="566" width="85" height="81"/>
+                                <color key="backgroundColor" red="0.92698863679999999" green="0.72161869960000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="Jfe-v2-JfT"/>
+                                    <constraint firstAttribute="height" constant="81" id="JvB-P9-dkD"/>
+                                </constraints>
+                                <state key="normal" title="PowerUP Xs"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="powerUP:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kI2-yb-jY8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Power : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gc1-Oy-gTs">
+                                <rect key="frame" x="59" y="47" width="70" height="40"/>
+                                <color key="backgroundColor" red="0.76819580194882531" green="0.88819080034042108" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9jm-IH-yrN"/>
+                                    <constraint firstAttribute="width" constant="70" id="tE2-oX-dKB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNL-Nu-adO">
+                                <rect key="frame" x="123" y="47" width="70" height="40"/>
+                                <color key="backgroundColor" red="0.76819580190000003" green="0.88819080029999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="XxC-Jb-9tJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="ezC-e8-B1K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.69373861053526698" blue="0.019757500645764758" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OQ1-ZK-OLG" secondAttribute="bottom" constant="20" id="0Zi-o8-kNy"/>
+                            <constraint firstAttribute="trailing" secondItem="ZwR-Nr-guh" secondAttribute="trailing" constant="-122" id="Aan-8r-CeS"/>
+                            <constraint firstItem="ZwR-Nr-guh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="308" id="BsO-le-xHs"/>
+                            <constraint firstItem="NNL-Nu-adO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="GnI-8a-tLc"/>
+                            <constraint firstItem="NNL-Nu-adO" firstAttribute="leading" secondItem="Gc1-Oy-gTs" secondAttribute="trailing" constant="-6" id="LMR-Ef-MGG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZwR-Nr-guh" secondAttribute="bottom" constant="309" id="MG0-1x-edW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cfq-Ci-pxn" secondAttribute="trailing" constant="59" id="SOC-ma-9Yt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NNL-Nu-adO" secondAttribute="trailing" constant="182" id="YKA-jU-44g"/>
+                            <constraint firstItem="NNL-Nu-adO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="123" id="cgP-ci-OrL"/>
+                            <constraint firstItem="ZwR-Nr-guh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="170" id="ihn-KQ-qQi"/>
+                            <constraint firstItem="Gc1-Oy-gTs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="kkM-MY-ksw"/>
+                            <constraint firstItem="Gc1-Oy-gTs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="59" id="tCN-HE-8nd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cfq-Ci-pxn" secondAttribute="bottom" constant="20" id="tWW-cz-S6A"/>
+                            <constraint firstItem="Cfq-Ci-pxn" firstAttribute="leading" secondItem="OQ1-ZK-OLG" secondAttribute="trailing" constant="87" id="uHT-Ob-jZe"/>
+                            <constraint firstItem="OQ1-ZK-OLG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="59" id="yv5-8Y-XPS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="NNL-Nu-adO" id="SZa-jR-c3R"/>
+                        <outlet property="powerSlider" destination="ZwR-Nr-guh" id="SB4-bh-c9M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="36" y="32.833583208395808"/>
         </scene>
     </scenes>
 </document>
